@@ -12,18 +12,18 @@ public class PayrollCalculator {
             String userName = customScanner.nextLine();
 
             System.out.println("Enter your hours worked: ");
-            float number1 = customScanner.nextFloat();
+            float hoursWorked = customScanner.nextFloat();
             customScanner.nextLine();
 
             System.out.println("Enter your hourly rate: ");
-            float number2 = customScanner.nextFloat();
+            float hourlyRate = customScanner.nextFloat();
             customScanner.nextLine();
 
             System.out.println();
             System.out.println("================");
             System.out.println();
 
-            float grossPay = (number1 * number2);
+            float grossPay = (hoursWorked * hourlyRate);
 
             System.out.printf("%s your total gross pay is %.2f", userName, grossPay);
 
