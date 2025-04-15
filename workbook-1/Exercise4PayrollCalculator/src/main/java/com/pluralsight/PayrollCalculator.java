@@ -25,6 +25,12 @@ public class PayrollCalculator {
 
             float grossPay = (hoursWorked * hourlyRate);
 
+
+            if (hoursWorked > 40) {
+                grossPay = (float) (40 * hourlyRate + (hoursWorked - 40) * 1.5 * hourlyRate);
+            } else {
+                grossPay = hoursWorked * hourlyRate;
+            }
             System.out.printf("%s your total gross pay is %.2f", userName, grossPay);
 
 
