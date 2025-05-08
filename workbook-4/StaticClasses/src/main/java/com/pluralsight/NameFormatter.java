@@ -44,6 +44,33 @@ public class NameFormatter {
             suffix = "";
 
         }
-        return fullName;
+        String[] nameParts = mainName.split(" ");
+
+        String prefix = "", firstName = "", middleName = "", lastName = "";
+
+        switch (nameParts.length) {
+            case 4:
+                prefix = nameParts[0];
+                firstName = nameParts[1];
+                middleName = nameParts[2];
+                lastName = nameParts[3];
+                break;
+
+            case 3:
+                firstName = nameParts[0];
+                middleName = nameParts[1];
+                lastName = nameParts[2];
+                break;
+
+            case 2:
+                firstName = nameParts[0];
+                lastName = nameParts[1];
+
+        }
+
+        return format(prefix, firstName, middleName, lastName, suffix);
+
     }
+
+
 }
