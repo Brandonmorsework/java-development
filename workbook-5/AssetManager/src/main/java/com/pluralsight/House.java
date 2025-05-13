@@ -48,6 +48,11 @@ public class House extends Asset{
     }
 
     @Override
-    public
+    public double getValue() {
+
+
+
+        return getOriginalCost();
+    }
 
 }
