@@ -39,10 +39,19 @@ private int odometer;
 
     @Override
     public double getValue() {
+    int currentYear =
+    int age = currentYear - year;
+    double value = 0.0;
+
+    if (age <= 3) {
+        for (int i = 0; i < age; i++) {
+
+        }
+            value =
+    }
 
 
-
-        return getOriginalCost();
+        return value;
     }
 
 }
