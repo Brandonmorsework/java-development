@@ -9,6 +9,9 @@ public class Jewelry extends FixedAsset{
         this.karat = karat;
     }
 
-
+    @Override
+    public double getValue() {
+        return 0;
+    }
 
 }
