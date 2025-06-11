@@ -28,9 +28,11 @@ public class DataManager {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(productQuery);
              ResultSet resultSet = preparedStatement.executeQuery()) {
+
             if (resultSet.next()) {
                 System.out.println("Products:");
-                while (resultSet.next()) {
+
+                do {
                     int productId = resultSet.getInt(1);
                     String productName = resultSet.getString(2);
                     double unitPrice = resultSet.getDouble(3);
@@ -41,15 +43,15 @@ public class DataManager {
                     System.out.println("Unit Price: " + unitPrice);
                     System.out.println("Units In Stock: " + unitsInStock);
                     System.out.println(" ================================ ");
-                }
+
+                } while (resultSet.next());
             } else {
                 System.out.println("No matches found...");
             }
 
         } catch (Exception ex) {
-            System.out.println();
+            System.err.println("An error has occurred");
+            ex.printStackTrace();
         }
-
-
     }
 }
