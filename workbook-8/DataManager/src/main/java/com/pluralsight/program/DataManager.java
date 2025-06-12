@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.program;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
