@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.program;
 
 import com.pluralsight.db.DataManager;
 import com.pluralsight.model.Film;
@@ -18,7 +18,7 @@ public class Main {
         String password = args[1];
 
         BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/northwind");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/sakila");
         dataSource.setUsername(username);
         dataSource.setPassword(password);
 
