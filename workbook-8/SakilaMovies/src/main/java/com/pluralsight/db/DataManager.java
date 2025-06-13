@@ -17,21 +17,22 @@ public class DataManager {
         this.dataSource = dataSource;
     }
 
-    public List<Film> getAllProducts() {
-        List<Film> films = new ArrayList<>();
-        String filmsQuery = "SELECT filmId, title, description, releaseYear, length FROM Film";
+    public List<Actor> getActorByName(String actorLastName) {
+        List<Actor> actors = new ArrayList<>();
+        String actorInfo = "SELECT actorId, firstName, lastName FROM Actor";
 
         try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(filmsQuery);
+             PreparedStatement preparedStatement = connection.prepareStatement(actorInfo);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             if (resultSet.next()) {
                 do {
-                    int productId = resultSet.getInt(1);
-                    String productName = resultSet.getString(2);
-                    double unitPrice = resultSet.getDouble(3);
-                    int unitsInStock = resultSet.getInt(4);
+                    int actorId = resultSet.getInt(1);
+                    String firstName = resultSet.getString(2);
+                    String lastName = resultSet.getString(3);
 
-                    films.add(new Film(productId, productName, unitPrice, unitsInStock));
+
+                    actors.add(new Actor(actorId, firstName, lastName));
+
                 } while (resultSet.next());
             } else {
                 System.out.println("No Matches");
@@ -41,10 +42,10 @@ public class DataManager {
             System.err.println("An error has occurred!");
             ex.printStackTrace();
         }
-        return films;
+        return actors;
     }
 
-    public Film getFilmByActorId(int ActorId) {
+    /*public Film getFilmByActorId(int ActorId) {
         Actor actorId = null;
         String productByIdQuery = "SELECT ProductID, ProductName, UnitPrice, UnitsInStock FROM Products WHERE ProductID = ?";
 
@@ -71,7 +72,7 @@ public class DataManager {
             ex.printStackTrace();
         }
         return films;
-    }
+    }*/
 
 
 }

@@ -1,6 +1,7 @@
 package com.pluralsight.program;
 
 import com.pluralsight.db.DataManager;
+import com.pluralsight.model.Actor;
 import com.pluralsight.model.Film;
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -22,17 +23,17 @@ public class Main {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
 
-        DataManager dataManager = new DataManager(dataSource);
-        List<Film> productList = dataManager.getAllProducts();
-
-        productList.forEach(System.out::println);
-
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter a Product ID:");
-        int productID = scanner.nextInt();
+        System.out.println("Please enter an Actor ID:");
+        int actorIDInput = scanner.nextInt();
 
-        Product product = dataManager.getProductById(productID);
-        System.out.println(product);
+        DataManager dataManager = new DataManager(dataSource);
+        List<Actor> actors = dataManager.getActorByName(actorIDInput);
+
+        actors.forEach(System.out::println);
+
+
+
 
 
     }
